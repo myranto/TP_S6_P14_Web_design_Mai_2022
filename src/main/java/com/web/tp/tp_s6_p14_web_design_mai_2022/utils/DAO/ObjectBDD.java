@@ -223,8 +223,9 @@ public class ObjectBDD {
         for( int i=0;i<f.length;i++) {
             f[i].setAccessible(true);
             KeyAnnotation column = f[i].getAnnotation(KeyAnnotation.class);
+            IdAnnotation idss = f[i].getAnnotation(IdAnnotation.class);
             ForeignKeyAnnotation fk = f[i].getAnnotation(ForeignKeyAnnotation.class);
-            if (fk == null) {
+            if ((fk == null)&&(idss==null)) {
                 String nameColumn = (column.column().equals(""))?f[i].getName(): column.column();
                 Object value = get(this,f[i].getName());
 
