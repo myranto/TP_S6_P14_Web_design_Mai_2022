@@ -35,7 +35,8 @@ public class AiController {
             information.setId_autor(id);
             System.out.println(information.getTitle()+" "+information.getContent());
             information.saveAll(Connexion.getConnection());
-            return new ModelAndView("ai/admin/accueil");
+             req.setAttribute("success","information creer avec success");
+            return list_info(req);
         } catch (Exception e) {
             return new ModelAndView("ai/admin/InfoCreation","error",e.getMessage());
         }
