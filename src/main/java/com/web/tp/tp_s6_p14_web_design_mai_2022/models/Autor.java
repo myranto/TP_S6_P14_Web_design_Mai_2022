@@ -64,6 +64,7 @@ public class Autor extends ObjectBDD {
             Autor o = (Autor) search(Connexion.getConnection()).get(0);
             return new Object[]{o.getId(),o.getName()};
         }catch (Exception e){
+            e.printStackTrace();
             throw new Exception("mot de passe ou identifiant incorrect pour : "+getEmail());
         }
     }
