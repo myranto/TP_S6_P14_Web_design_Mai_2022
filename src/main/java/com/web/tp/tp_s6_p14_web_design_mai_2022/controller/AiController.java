@@ -41,6 +41,7 @@ public class AiController {
             return new ModelAndView("ai/admin/InfoCreation","error",e.getMessage());
         }
     }
+    @Cacheable("list_info")
     @GetMapping("/list_info")
     public ModelAndView list_info(HttpServletRequest req) throws Exception {
         ModelAndView mod = new ModelAndView("ai/common/list_info");
@@ -63,6 +64,7 @@ public class AiController {
         mod.addObject("count",t);
         return mod;
     }
+    
     @GetMapping("/search")
     public ModelAndView search(HttpServletRequest req) throws Exception {
         ModelAndView mod = new ModelAndView("ai/common/list_info");
@@ -85,6 +87,7 @@ public class AiController {
 
         return mod;
     }
+    @Cacheable("detail_info")
     @GetMapping("/detail_info")
     public ModelAndView getDetail(@RequestParam("id")String id,HttpServletRequest req) throws Exception {
         try {
@@ -106,6 +109,7 @@ public class AiController {
         return list_info(req);
     }
     @GetMapping("/ownpub")
+    @Cacheable("ownpub")
     public ModelAndView myOwnPublication(@RequestParam("id")String id,HttpServletRequest req) throws Exception {
         ModelAndView mod = new ModelAndView("ai/common/list_info");
         int ida = req.getSession().getAttribute("id")!=null?(int)req.getSession().getAttribute("id"): -1;
