@@ -2,6 +2,7 @@ package com.web.tp.tp_s6_p14_web_design_mai_2022.controller;
 
 import com.web.tp.tp_s6_p14_web_design_mai_2022.models.Information;
 import com.web.tp.tp_s6_p14_web_design_mai_2022.utils.Connex.Connexion;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
